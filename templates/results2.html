@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            margin: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            width: 300px;
+        }
+
+        .form-container:first-child {
+            margin-right: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        input {
+            width: calc(100% - 16px); /* Considering padding */
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .flood-alert {
+            color: red;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalloopara</h1>
+
+    <div class="form-container">
+        <form action="/predict" method="post">
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date" placeholder="Enter date" required>
+
+            <label for="month">Month:</label>
+            <input type="text" id="month" name="month" placeholder="Enter month" required>
+
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" placeholder="Enter year" required>
+
+            <label for="flow">Flow:</label>
+            <input type="text" id="flow" name="flow" placeholder="Enter flow" required>
+
+            <label for="rainfall">Rainfall:</label>
+            <input type="text" id="rainfall" name="rainfall" placeholder="Enter rainfall" required>
+
+            <button type="submit">Predict</button>
+
+        </form>
+        {% if prediction is defined %}
+            <h1>Flood Prediction Result</h1>
+            <p>The predicted water level is: {{ prediction }}</p>
+
+            {% if prediction > 1.3344594 %}
+                <div class="flood-alert">
+                    <p>Flood Alert!</p>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+    <h1>Kottayam</h1>
+    <div class="form-container">
+        <form action="/predict" method="post">
+            <label for="date">Date:</label>
+            <input type="text" id="date" name="date" placeholder="Enter date" required>
+
+            <label for="month">Month:</label>
+            <input type="text" id="month" name="month" placeholder="Enter month" required>
+
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" placeholder="Enter year" required>
+
+            <label for="flow">Flow:</label>
+            <input type="text" id="flow" name="flow" placeholder="Enter flow" required>
+
+            <label for="rainfall">Rainfall:</label>
+            <input type="text" id="rainfall" name="rainfall" placeholder="Enter rainfall" required>
+
+            <button type="submit">Predict</button>
+
+        </form>
+        {% if prediction is defined %}
+            <h1>Flood Prediction Result</h1>
+            <p>The predicted water level is: {{ prediction }}</p>
+
+            {% if prediction > 1.3344594 %}
+                <div class="flood-alert">
+                    <p>Flood Alert!</p>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
